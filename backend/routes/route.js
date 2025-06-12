@@ -1,10 +1,12 @@
-const express = require('express');
+const express = require("express");
 
 const ownerRouter = express.Router();
-const ownerController = require('../controllers/owner.controller');
+const ownerController = require("../controllers/owner.controller");
 
-ownerRouter.get('/', ownerController.createUser);
+ownerRouter.post("/", ownerController.createUser);
+ownerRouter.post("/access-code", ownerController.createAccessCode);
+ownerRouter.post("/validate-access-code", ownerController.validateAccessCode)
 
 module.exports = {
-    ownerRouter
-}
+  ownerRouter,
+};
