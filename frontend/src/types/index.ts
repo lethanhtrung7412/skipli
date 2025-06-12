@@ -1,3 +1,1 @@
-export interface PhoneLoginForm {
-    phoneNumber: string;
-}
+export * as FormSchema from "./formSchema";
