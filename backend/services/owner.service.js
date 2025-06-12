@@ -52,6 +52,8 @@ const validateAccessCode = async (phoneNumber, accessCode) => {
         if (userDoc.data().accessCode !== accessCode) {
             return false;
         }
+        const userRef = doc(fireStore, 'users', userDoc.id);
+        await setDoc(userRef, { accessCode: '', updatedAt: new Date().toISOString() }, { merge: true });
         return true
     } catch (error) {
         console.error('Error creating access code:', error);
